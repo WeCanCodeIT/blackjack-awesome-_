@@ -1,0 +1,22 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "blackjack-dealer-logic": "^1.1.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "scripts": {
+    "test": "jest --colors --watchAll",
+    "start": "webpack-dev-server --mode development --content-base docs/ --open --hot"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
