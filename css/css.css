@@ -1,0 +1,70 @@
+roots: {
+    /* --game-table__color:  */
+
+}
+
+* {
+    /* outline:0; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.action__double {
+
+}
+
+.action__hit {
+
+}
+
+.action__stand {
+
+}
+
+.button {
+
+}
+
+.cards {
+    /* ♠♣♥♦ */
+}
+
+.game__dealer {
+    background-color: green;
+    grid-area: game-dealer;
+}
+
+.game__dealer-cards {
+
+}
+
+.game__player {
+    background-color: greenyellow;
+    grid-area: game-player;
+}
+
+.game__player-actions {
+
+}
+
+.game__player-cards {
+
+}
+
+
+.main__header {
+    background-color: blue;
+    grid-area: header;
+    width: auto;
+}
+
+.main__player-stats {
+    background-color: indianred;
+    grid-area: stats-bar;
+}
+
+.main__wrapper {
+    grid-template-areas: 10% 40% 40% 10%;
+    grid-template-rows: header game-dealer game-player stats-bar;
+}
