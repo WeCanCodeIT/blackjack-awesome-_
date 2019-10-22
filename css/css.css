@@ -1,7 +1,13 @@
-roots: {
-    /* --game-table__color:  */
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Bree+Serif|Noto+Serif:400,700|Patua+One|Source+Sans+Pro&display=swap');
 
-}
+/* 
+font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Noto Serif', serif;
+font-family: 'Bree Serif', serif;
+font-family: 'Patua One', cursive;
+font-family: 'Abril Fatface', cursive;
+*/
+
 
 * {
     /* outline:0; */
@@ -10,6 +16,10 @@ roots: {
     padding: 0;
 }
 
+html {
+    --playing-card-font: 'Noto Serif', cursive;
+}
+ 
 .action__double {
 
 }
@@ -33,6 +43,7 @@ roots: {
 .game__dealer {
     background-color: green;
     grid-area: game-dealer;
+    height: 10rem;
 }
 
 .game__dealer-cards {
@@ -42,6 +53,7 @@ roots: {
 .game__player {
     background-color: greenyellow;
     grid-area: game-player;
+    height: 10rem;
 }
 
 .game__player-actions {
@@ -49,22 +61,70 @@ roots: {
 }
 
 .game__player-cards {
-
+    display: flex;
+    margin: 1rem;
 }
 
 
 .main__header {
     background-color: blue;
     grid-area: header;
+    height: 5rem;
     width: auto;
 }
 
 .main__player-stats {
     background-color: indianred;
     grid-area: stats-bar;
+    height: 10rem;
 }
 
 .main__wrapper {
-    grid-template-areas: 10% 40% 40% 10%;
+    /* grid-template-areas: 10% 40% 40% 10%; */
     grid-template-rows: header game-dealer game-player stats-bar;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.playing-card {
+    align-items: center;
+    background-color: rgb(241, 225, 205);
+    border-radius: 15%;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--playing-card-font);
+    font: bold;
+    justify-content: center;
+    height: 4rem;
+    margin: .175rem;
+    width: 3rem;  
+}
+
+.playing-card__container {
+    border: 1px;
+    border-style: solid;
+    border-radius: 15%;
+    padding: .25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+}
+
+.black-suit {
+    border-color: #F12925;
+    color: black;
+}
+
+.red-suit {
+    border-color: black;
+    color: #F12925;
+}
+
+.playing-card__value {
+    
 }

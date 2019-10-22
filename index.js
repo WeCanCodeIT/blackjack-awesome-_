@@ -1,28 +1,49 @@
-// const { singleDeckGame, Result } = require('blackjack-dealer-logic');
-// const input = require('readline-sync');
+// const {
+//     default: { singleDeckGame }
+//   } = require("blackjack-dealer-logic");
+  
+//   singleDeckGame.deal();
+  
+//   const userHand = singleDeckGame.getUserHand();
+  
+//   createPlayingCard(userHand.getCards()[0]);
+//   createPlayingCard(userHand.getCards()[1]);
 
 
-// console.log("BlackJack_AWSM.");
+const hit_button = document.querySelector(".action__hit");
+hit_button.addEventListener("click", () => {
 
-// const buttons = document.querySelectorAll(".button");
+    // createPlayingCard(userHand.getCards()[0]);
+    createPlayingCard();
+    
+})
 
-// const backgroundButton = document.querySelector(".addBackground");
+function createPlayingCard() {
 
-// buttons.forEach(function(button) {
-//   button.addEventListener("click", () => {
-//     const paragraph = document.createElement("p");
+    const playing_card = document.createElement("div");
+    playing_card.classList.add("playing-card");
 
-//     paragraph.classList.add("newParagraph");
+    const container = document.createElement("div");
+    container.classList.add("playing-card__container");
+    container.classList.add("red-suit");
 
-//     paragraph.textContent = "My new paragraph!";
+    const suit = document.createElement("div");
+    suit.classList.add("playing-card__suit");
+    suit.textContent = "♠";
 
-//     document.body.append(paragraph);
-//   });
-// });
+    const value = document.createElement("div");
+    value.classList.add("playing-card__value");
+    value.textContent = "A";
 
-// backgroundButton.addEventListener("click", () => {
-//   const paragraph = document.querySelector(".newParagraph");
+    container.append(suit);
+    container.append(value);
+    playing_card.append(container);
 
-//   paragraph.classList.add("redBackground");
-//   paragraph.classList.remove("newParagraph");
-// });
+    const cards = document.querySelector(".game__player-cards");
+    cards.append(playing_card);
+
+}
+
+
+
+
