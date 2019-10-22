@@ -1,10 +1,37 @@
 // const { singleDeckGame, Result } = require('blackjack-dealer-logic');
 // const input = require('readline-sync');
  
+/*
+<div class="playing-card">
+    <div class="playing-card__container red-suit">
+        <div class="playing-card__suit">♠</div>
+           <div class="playing-card__value">A</div>
+        </div>
+     </div>
+                    */
 
-// console.log("BlackJack_AWSM.");
+const hit_button = document.querySelector(".action__hit");
+hit_button.addEventListener("click", () => {
 
-// const buttons = document.querySelectorAll(".button");
+    const playing_card = document.createElement("div");
+    playing_card.classList.add("playing-card");
+
+    const container = document.createElement("div");
+    container.classList.add("playing-card__container");
+    container.classList.add("red-suit");
+
+    const suit = document.createElement("div");
+    suit.classList.add("playing-card__suit");
+
+    const value = document.createElement("div");
+    value.classList.add("playing-card__value");
+
+    container.append(suit);
+    container.append(value);
+    playing_card.append(container);
+    document.append(playing_card);
+
+})
 
 // const backgroundButton = document.querySelector(".addBackground");
 

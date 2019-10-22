@@ -87,9 +87,9 @@ html {
 
 .playing-card {
     align-items: center;
-    background-color: antiquewhite;
+    background-color: rgb(241, 225, 205);
     border-radius: 15%;
-    border: 2px;
+    border: 1px;
     border-style: solid;
     border-color: black;
     display: flex;
@@ -114,13 +114,13 @@ html {
 }
 
 .black-suit {
-    border-color: red;
+    border-color: #F12925;
     color: black;
 }
 
 .red-suit {
     border-color: black;
-    color: red;
+    color: #F12925;
 }
 
 .playing-card__value {
