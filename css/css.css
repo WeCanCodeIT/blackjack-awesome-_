@@ -10,7 +10,6 @@ font-family: 'Abril Fatface', cursive;
 
 
 * {
-    /* outline:0; */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -42,8 +41,6 @@ html {
 
 .game__dealer {
     background-color: green;
-    grid-area: game-dealer;
-    height: 10rem;
 }
 
 .game__dealer-cards {
@@ -51,9 +48,7 @@ html {
 }
 
 .game__player {
-    background-color: greenyellow;
-    grid-area: game-player;
-    height: 10rem;
+    background-color: chartreuse;
 }
 
 .game__player-actions {
@@ -65,25 +60,25 @@ html {
     margin: 1rem;
 }
 
+.main__game {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin: 0 auto;
+    width: 100%;
+}
 
 .main__header {
     background-color: blue;
-    grid-area: header;
-    height: 5rem;
-    width: auto;
 }
 
 .main__player-stats {
     background-color: indianred;
-    grid-area: stats-bar;
-    height: 10rem;
 }
 
 .main__wrapper {
-    /* grid-template-areas: 10% 40% 40% 10%; */
-    grid-template-rows: header game-dealer game-player stats-bar;
+    display: grid;
+    grid-template-rows: 1fr 8fr 1fr;
     min-height: 100vh;
-    min-width: 100vw;
 }
 
 .playing-card {
