@@ -1,17 +1,24 @@
-// const { singleDeckGame, Result } = require('blackjack-dealer-logic');
-// const input = require('readline-sync');
- 
-/*
-<div class="playing-card">
-    <div class="playing-card__container red-suit">
-        <div class="playing-card__suit">♠</div>
-           <div class="playing-card__value">A</div>
-        </div>
-     </div>
-                    */
+// const {
+//     default: { singleDeckGame }
+//   } = require("blackjack-dealer-logic");
+  
+//   singleDeckGame.deal();
+  
+//   const userHand = singleDeckGame.getUserHand();
+  
+//   createPlayingCard(userHand.getCards()[0]);
+//   createPlayingCard(userHand.getCards()[1]);
+
 
 const hit_button = document.querySelector(".action__hit");
 hit_button.addEventListener("click", () => {
+
+    // createPlayingCard(userHand.getCards()[0]);
+    createPlayingCard();
+    
+})
+
+function createPlayingCard() {
 
     const playing_card = document.createElement("div");
     playing_card.classList.add("playing-card");
@@ -22,34 +29,21 @@ hit_button.addEventListener("click", () => {
 
     const suit = document.createElement("div");
     suit.classList.add("playing-card__suit");
+    suit.textContent = "♠";
 
     const value = document.createElement("div");
     value.classList.add("playing-card__value");
+    value.textContent = "A";
 
     container.append(suit);
     container.append(value);
     playing_card.append(container);
-    document.append(playing_card);
 
-})
+    const cards = document.querySelector(".game__player-cards");
+    cards.append(playing_card);
 
-// const backgroundButton = document.querySelector(".addBackground");
+}
 
-// buttons.forEach(function(button) {
-//   button.addEventListener("click", () => {
-//     const paragraph = document.createElement("p");
 
-//     paragraph.classList.add("newParagraph");
 
-//     paragraph.textContent = "My new paragraph!";
 
-//     document.body.append(paragraph);
-//   });
-// });
-
-// backgroundButton.addEventListener("click", () => {
-//   const paragraph = document.querySelector(".newParagraph");
-
-//   paragraph.classList.add("redBackground");
-//   paragraph.classList.remove("newParagraph");
-// });

@@ -17,7 +17,7 @@ font-family: 'Abril Fatface', cursive;
 }
 
 html {
-    --playing-card-font: 'Abril Fatface', cursive;
+    --playing-card-font: 'Noto Serif', cursive;
 }
  
 .action__double {
@@ -61,7 +61,8 @@ html {
 }
 
 .game__player-cards {
-
+    display: flex;
+    margin: 1rem;
 }
 
 
@@ -98,6 +99,7 @@ html {
     font: bold;
     justify-content: center;
     height: 4rem;
+    margin: .175rem;
     width: 3rem;  
 }
 
