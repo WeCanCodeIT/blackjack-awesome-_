@@ -16,7 +16,7 @@ font-family: 'Abril Fatface', cursive;
 }
 
 html {
-    --playing-card-font: 'Noto Serif', cursive;
+    --playing-card-font: 'Bree Serif', serif;
 }
  
 .action__double {
@@ -24,15 +24,17 @@ html {
 }
 
 .action__hit {
-
+   
 }
 
 .action__stand {
-
+    
 }
 
 .button {
-
+    padding: .5rem;
+    font-family: var(--playing-card-font);
+    font: bold;
 }
 
 .cards {
@@ -43,10 +45,6 @@ html {
     background-color: green;
 }
 
-.game__dealer-cards {
-
-}
-
 .game__player {
     background-color: chartreuse;
 }
@@ -55,7 +53,7 @@ html {
 
 }
 
-.game__player-cards {
+.game__player-cards, .game__dealer-cards {
     display: flex;
     margin: 1rem;
 }
@@ -68,7 +66,22 @@ html {
 }
 
 .main__header {
-    background-color: blue;
+    /* display: flex;
+    justify-content: space-between; */
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2rem;
+    background-size: 8rem 8rem;
+    background-image: url(./images/Title_Unicorn.jpg);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-color: hotpink;
+
+}
+
+.main__header-image img {
+    /* height: auto;
+    width: auto; */
+    /* size: 10%; */
 }
 
 .main__player-stats {
