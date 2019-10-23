@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "blackjack-dealer-logic": "^1.1.4",
+    "playing-card-deck-generator": "^2.0.1",
     "readline-sync": "^1.4.10",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
