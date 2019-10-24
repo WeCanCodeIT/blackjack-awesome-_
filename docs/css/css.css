@@ -42,11 +42,11 @@ html {
 }
 
 .game__dealer {
-    background-color: green;
+    background-color: rgb(15, 82, 15);
 }
 
 .game__player {
-    background-color: chartreuse;
+    background-color:  rgb(15, 82, 15);;
 }
 
 .game__player-actions {
@@ -70,11 +70,12 @@ html {
     justify-content: space-between; */
     font-family: 'Abril Fatface', cursive;
     font-size: 2rem;
+    color: #F12925;
     background-size: 8rem 8rem;
-    background-image: url(./images/Title_Unicorn.jpg);
+    background-image: url(./images/cartoon_unicorn.png);
     background-repeat: no-repeat;
     background-position: right top;
-    background-color: hotpink;
+    background-color: black;
 
 }
 
