@@ -45,13 +45,33 @@ module.exports = {
     clickHit(singleDeckGame) {
         singleDeckGame.evaluateUser();
         if (!singleDeckGame.isUserBust()) {
-            singleDeckGame.hitUser();
+            singleDeckGame.hitUser();                     
+        }
+
+        if (singleDeckGame.isUserBust()) {       
+            singleDeckGame.evaluateUser();
+            this.disableActionButtons();
+            this.finishDealerHand(singleDeckGame);
+            this.displayCards(singleDeckGame.getDealerHand().getCards(), document.querySelector(".game__dealer-cards"));
         }
     },
 
     clickWager(singleDeckGame, wager) {
         singleDeckGame.resetAnte();
         singleDeckGame.receiveAnte(wager);
+    },
+
+    finishDealerHand(singleDeckGame){
+        singleDeckGame.settleDealerHand();
+        singleDeckGame.evaluateDealer();
+
+
+    // const resultContainer = document.querySelector(".result");
+    // const restartButton = this.renderRestartButton();
+    // resultContainer.append(restartButton);
+    // this.addRestartButtonEventListener(singleDeckGame);
+
+   
     }
 
 
