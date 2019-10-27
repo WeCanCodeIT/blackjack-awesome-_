@@ -6,11 +6,19 @@ module.exports = {
 
         const container = document.createElement("div");
         container.classList.add("playing-card__container");
-        container.classList.add("red-suit");
+
+        let cardSuit = card.getSuit();
+        console.log(cardSuit);
+
+        if (cardSuit == "♡" || cardSuit == "♢") {
+            container.classList.add("red-suit");
+        } else {
+            container.classList.add("black-suit");
+        }
 
         const suit = document.createElement("div");
         suit.classList.add("playing-card__suit");
-        suit.textContent = card.getSuit();
+        suit.textContent = cardSuit;
 
         const value = document.createElement("div");
         value.classList.add("playing-card__value");
