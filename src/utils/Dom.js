@@ -6,11 +6,19 @@ module.exports = {
 
         const container = document.createElement("div");
         container.classList.add("playing-card__container");
-        container.classList.add("red-suit");
+
+        let cardSuit = card.getSuit();
+        console.log(cardSuit);
+
+        if (cardSuit == "♡" || cardSuit == "♢") {
+            container.classList.add("red-suit");
+        } else {
+            container.classList.add("black-suit");
+        }
 
         const suit = document.createElement("div");
         suit.classList.add("playing-card__suit");
-        suit.textContent = card.getSuit();
+        suit.textContent = cardSuit;
 
         const value = document.createElement("div");
         value.classList.add("playing-card__value");
@@ -45,14 +53,15 @@ module.exports = {
     clickHit(singleDeckGame) {
         singleDeckGame.evaluateUser();
         if (!singleDeckGame.isUserBust()) {
-            singleDeckGame.hitUser();                     
-        }
-
-        if (singleDeckGame.isUserBust()) {       
-            singleDeckGame.evaluateUser();
-            this.disableActionButtons();
-            this.finishDealerHand(singleDeckGame);
-            this.displayCards(singleDeckGame.getDealerHand().getCards(), document.querySelector(".game__dealer-cards"));
+            singleDeckGame.hitUser();   
+            singleDeckGame.evaluateUser();             
+        
+            if (singleDeckGame.isUserBust()) {       
+                this.disableActionButtons();
+                this.finishDealerHand(singleDeckGame);
+                document.querySelector(".game__dealer-cards").innerHTML = "";
+                this.displayCards(singleDeckGame.getDealerHand().getCards(), document.querySelector(".game__dealer-cards"));
+            }
         }
     },
 
@@ -62,17 +71,20 @@ module.exports = {
     },
 
     finishDealerHand(singleDeckGame){
+        userHandValue = singleDeckGame.evaluateUser();
+        console.log("User Hand Value: " + userHandValue);
+
+        dealerHandValue = singleDeckGame.evaluateDealer();        
+        console.log("Dealer Hand (after evaluate): " + dealerHandValue);
+
         singleDeckGame.settleDealerHand();
-        singleDeckGame.evaluateDealer();
+        dealerHandValue = singleDeckGame.evaluateDealer();  
+        console.log("Dealer Hand (after settle): " + dealerHandValue);
 
+        if (singleDeckGame.isUserBust()) {
+            console.log("User is bust when dealer hand is finishing.")
+        }  
 
-    // const resultContainer = document.querySelector(".result");
-    // const restartButton = this.renderRestartButton();
-    // resultContainer.append(restartButton);
-    // this.addRestartButtonEventListener(singleDeckGame);
-
-   
     }
-
 
 };

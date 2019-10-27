@@ -13,11 +13,12 @@ const stand_button = document.querySelector(".action__stand");
 const double_button = document.querySelector(".action__double");
 const play_again_button = document.querySelector(".action__play-again");
 
-let userChips = document.querySelector(".user__chips");
-let currentWager = document.querySelector(".user__wager");
-let wagerInput = document.querySelector(".wager__input");
-let total_wins = document.querySelector(".total-wins");
-let total_games = document.querySelector(".total-games");
+const userChips = document.querySelector(".user__chips");
+const currentWager = document.querySelector(".user__wager");
+const wagerInput = document.querySelector(".wager__input");
+const total_wins = document.querySelector(".total-wins");
+const total_games = document.querySelector(".total-games");
+const game_result = document.querySelector(".game-result");
 let totalWins = 0;
 let totalLosses = 0;
 
@@ -27,8 +28,8 @@ double_button.hidden = true;
 wager_button.disabled = false;
 
 singleDeckGame.deal();
-const userHand = singleDeckGame.getUserHand();
-const dealerHand = singleDeckGame.getDealerHand();
+let userHand = singleDeckGame.getUserHand();
+let dealerHand = singleDeckGame.getDealerHand();
 
 userChips.textContent = singleDeckGame.getUserChips();
 currentWager.textContent = singleDeckGame.getAnte();
@@ -44,11 +45,17 @@ play_again_button.addEventListener("click", () => {
   stand_button.disabled = false;
   double_button.hidden = true;
   double_button.disabled = false;
+  play_again_button.hidden = true;
 
   wagerInput.hidden = false;
   wagerInput.textContent = "";
   wager_button.hidden = false;
   wager_button.disabled = false;
+
+  playerCard.innerHTML = "";
+  dealerCard.innerHTML = "";
+  game_result.innerHTML = ""; 
+
 })
 
 hit_button.addEventListener("click", () => {
@@ -65,9 +72,11 @@ hit_button.addEventListener("click", () => {
 stand_button.addEventListener("click", () => {
   Dom.clickStand(singleDeckGame);
   playerCard.innerHTML = ""; 
+  dealerCard.innerHTML = "";
   Dom.displayCards(userHand.getCards(), playerCard);
 
   Dom.finishDealerHand(singleDeckGame);
+  dealerCard.innerHTML = "";
   Dom.displayCards(dealerHand.getCards(), dealerCard);
   processResult();
 
@@ -75,6 +84,7 @@ stand_button.addEventListener("click", () => {
 
 double_button.addEventListener("click", () => {
   singleDeckGame.doubleUser();
+  singleDeckGame.evaluateUser();
   playerCard.innerHTML = ""; 
   Dom.displayCards(userHand.getCards(), playerCard);
   Dom.disableActionButtons();
@@ -82,6 +92,7 @@ double_button.addEventListener("click", () => {
   currentWager.textContent = singleDeckGame.getAnte();
 
   Dom.finishDealerHand(singleDeckGame);
+  dealerCard.innerHTML = "";
   Dom.displayCards(dealerHand.getCards(), dealerCard);
 
   processResult();
@@ -98,17 +109,19 @@ wager_button.addEventListener("click", (() => {
   hit_button.hidden = false;
   stand_button.hidden = false;
   double_button.hidden = false;
+
+  singleDeckGame.deal();
+  userHand = singleDeckGame.getUserHand();
+  dealerHand = singleDeckGame.getDealerHand();
+
   Dom.displayCards(userHand.getCards(), playerCard);
   Dom.displayCards([dealerHand.getCards()[0]], dealerCard);
 }));
 
-function processResult(){
-
-  const game_result = document.querySelector(".game-result");
+function processResult(){  
 
   switch (singleDeckGame.outcome()) {
     case Result.WIN:
-      singleDeckGame.userWin();
       ++totalWins;
       singleDeckGame.userWin();
       console.log("You won!!! Total Wins = " + totalWins);
@@ -139,7 +152,11 @@ function processResult(){
   total_wins.textContent = totalWins;
   total_games.textContent = totalWins + totalLosses;
 
+  
+
   if (singleDeckGame.getUserChips() > 0) {
     play_again_button.hidden = false;
   }
+
+  
 }
