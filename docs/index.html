@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>¡AWSM!</title>
+    <link rel="stylesheet" href="./css/css.css" />
+</head>
+
+<body>
+    <div class="main__wrapper">
+        <section class="main__header">
+            <div class="main__header-title">
+                <h1>AW<br>SM</h1>
+            </div>
+        </section>
+
+        <section class="main__game">
+
+            <section class="game__dealer">
+                <p>DEALER</p>
+                <section class="game__dealer-cards"></section>
+                <div class="game-result"></div>
+                <div class="play-again">
+                    <button class="button action__play-again" hidden>Play Again!</button>
+                </div>
+            </section>
+
+            <section class="game__player">
+                <p class="player-name">PLAYER</p>
+                <section class="game__player-cards">
+
+                </section>
+
+                <section class="game__player-actions">
+                    <button class="button action__hit">Hit</button>
+                    <button class="button action__stand">Stand</button>
+                    <button class="button action__double">Double</button>
+                    <div class="wager__container" hidden>                        
+                        <input class="wager__input" type="number" name="quantity" min="1" max="200">
+                        <button class="button action__wager">Place Bet</button>
+                    </div>
+                    <div class="name__container">                        
+                        <input class="name__input" type="text">
+                        <button class="button action__name">Submit Your Name</button>
+                    </div>
+
+                </section>
+
+            </section>
+
+        </section>
+
+        <section class="main__player-stats">
+            <div class="current__game-stats">
+                <div class="current__game-stats__chips">
+                    <div>User Chips Remaining: </div>
+                    <div class="user__chips"></div>
+                </div>
+                <div class="current__game-stats__wager">
+                    <div>Current Wager: </div>
+                    <div class="user__wager"></div>
+                </div>
+            </div>
+            <div class="total-stats__middle">
+                <div>Total Wins: </div>
+                <div class="total-wins"></div>
+            </div>
+            <div class="total-stats__right">
+                <div>Total Games:</div>
+                <div class="total-games"></div>
+            </div>
+        </section>
+    </div>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
