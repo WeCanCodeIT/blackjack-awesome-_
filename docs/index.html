@@ -30,7 +30,7 @@
             </section>
 
             <section class="game__player">
-                <p>PLAYER</p>
+                <p class="player-name">PLAYER</p>
                 <section class="game__player-cards">
 
                 </section>
@@ -39,9 +39,13 @@
                     <button class="button action__hit">Hit</button>
                     <button class="button action__stand">Stand</button>
                     <button class="button action__double">Double</button>
-                    <div class="wager__container">
+                    <div class="wager__container" hidden>                        
                         <input class="wager__input" type="number" name="quantity" min="1" max="200">
                         <button class="button action__wager">Place Bet</button>
+                    </div>
+                    <div class="name__container">                        
+                        <input class="name__input" type="text">
+                        <button class="button action__name">Submit Your Name</button>
                     </div>
 
                 </section>
